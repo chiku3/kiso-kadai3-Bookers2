@@ -1,0 +1,15 @@
+<h1>Book detail</h1>
+
+    <table>
+        <tbody>
+            <%= @book.each do |book| %>
+            <tr>
+                <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpg", fallback:"no_image.jpg" %></td>
+                <td>book.title</td>
+                <td>book.body</td>
+                <td><%= link_to "Edit", edit_book_path(@book) %></td>
+                <td><%= link_to "Destroy", books_path, method: :delete %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>

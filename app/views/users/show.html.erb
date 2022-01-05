@@ -1,1 +1,45 @@
+<h1>Books</h1>
+    <table>
+        <thead>
+           <tr>
+               <th>image</th>
+               <th>Title</th>
+               <th>Opinion</th>
+           </tr>
+        </thead>
+        <tbody>
+            <%= @books.each do |book| %>
+            <tr>
+                <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpg", fallback:"no_image.jpg" %></td>
+                <td>book.title</td>
+                <td>book.body</td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+
 <h1>User info</h1>
+    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpg", fallback:"no_image.jpg" %>
+    <p>
+        name
+        <%= @user.name %>
+    </p>
+    <p>
+        introduction
+        <%= @user.introduction %>
+    </p>
+    <%= link_to "edit", edit_user_path(@user) %>    
+
+  <h1>New book</h1>
+  <%= form_with model:@book,local: true do |f| %>
+
+  <label for="inputTitle">Title</label><br/>
+  <%= f.text_field :title, autofucus: true, id:"inputTitle"  %>
+  <br/>
+  <label for="inputOpinion">Opinion</label><br/>
+  <%= f.text_area :body, autofucus: true, id:"inputOpinion"  %>
+  <br/>
+  <%= f.submit "Create Book" %>
+  
+  <% end %>
