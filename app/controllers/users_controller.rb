@@ -8,15 +8,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @books = @user.books
+    @users = User.find(params[:id])
+    @books = @users.books
     @book = Book.new
-  end
-  
-  def create
-    @user = current_user
-    @book = Book.new
-    @book.save
-    redirect_to book_path(@book)
   end
 
   def edit
@@ -33,10 +27,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
-  end
-
-  def book_params
-    params.require(:book).permit(:title,:body)
   end
 
 end
