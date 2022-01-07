@@ -1,5 +1,16 @@
 <div class="container">
+ <div class="row">
+  <div class="col-lg-6 mx-auto">
   <h1>User info</h1>
+   <div class="error-message">
+   <% if @user.errors.any? %>
+    <%= @user.errors.count %>error prohibited this obj from being saved:
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+   <% end %>
+   </div>
+  
   <%= form_with model:@user, local: true do |f| %>
 
   <label for="inputName">Name</label><br/>
@@ -14,4 +25,6 @@
     <%= f.submit "Update User", class:"btn btn-secondary" %>
 
   <% end %>
+  
+ </div>
 </div>

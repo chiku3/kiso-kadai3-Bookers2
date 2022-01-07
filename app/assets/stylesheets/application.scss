@@ -17,9 +17,22 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+// フラッシュメッセージ
+.notice {
+  color: green;
+}
+
+// エラーメッセージ
+.error-message{
+    color:red;
+}
+
 // ヘッダー
 .nav-icon{
   color:white;
 }
 
 // top page
+.top-btn{
+    width:300px;
+}

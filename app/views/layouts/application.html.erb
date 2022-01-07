@@ -65,8 +65,17 @@
       </div>
      </nav>
    </header>
-
+  
+    <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+  
+    <main class="mb-auto">
     <%= yield %>
+    </main>
 
+    <footer class="mx-auto">
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>
