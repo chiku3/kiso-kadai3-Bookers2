@@ -1,47 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://kit.fontawesome.com/3e46d09fe1.js" crossorigin="anonymous"></script>
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <p>
-      <%= link_to "Bookers", root_path %>
-    </p>
-    
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "Home", user_path(current_user.id) %>
-      </li>
-      <li>
-        <%= link_to "Users", users_path %>
-      </li>
-      <li>
-        <%= link_to "Books", books_path %>
-      </li>
-      <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "About", home_about_path %>
-      </li>
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Log in", new_user_session_path %>
-      </li>
-    <% end %>
-    
+  <body class="d-flex flex-column vh-100">
+     <header>
+       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+          <p>
+            <%= link_to "Bookers", root_path, class:"text-light nabvar-brand" %>
+          </p>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="navbar-nav ml-auto" >
+            <% if user_signed_in? %>
+            <ul class="nav-item">
+              <i class="fas fa-home nav-icon"></i>
+              <%= link_to "Home", user_path(current_user.id), class:"text-light" %>
+            </ul>
+            <ul class="nav-item">
+              <i class="fas fa-users nav-icon"></i>
+              <%= link_to "Users", users_path, class:"text-light" %>
+            </ul>
+            <ul class="nav-item">
+              <i class="fas fa-book-open nav-icon"></i>
+              <%= link_to "Books", books_path, class:"text-light" %>
+            </ul>
+            <ul class="nav-item">
+              <i class="fas fa-sign-out-alt nav-icon"></i>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"text-light" %>
+            </ul>
+            <% else %>
+            <ul class="nav-item">
+              <i class="fas fa-home nav-icon"></i>
+              <%= link_to "Home", root_path, class:"text-light" %>
+            </ul>
+            <ul class="nav-item">
+              <i class="fas fa-link nav-icon"></i>
+              <%= link_to "About", home_about_path, class:"text-light" %>
+            </ul>
+            <ul class="nav-item">
+              <i class="fas fa-user-plus nav-icon"></i>
+              <%= link_to "Sign up", new_user_registration_path, class:"text-light" %>
+            </ul>
+            <ul class="nav-item">
+              <i class="fas fa-sign-in-alt nav-icon"></i>
+              <%= link_to "Log in", new_user_session_path, class:"text-light" %>
+            </ul>
+            <% end %>
+          </div>
+        </div>
+         
+      </div>
+     </nav>
+   </header>
+
     <%= yield %>
+
   </body>
 </html>
