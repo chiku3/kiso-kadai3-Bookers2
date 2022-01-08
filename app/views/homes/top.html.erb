@@ -9,13 +9,13 @@
   </div>
  </div>
 
- <div class="row" >
-     <div class="mx-auto">
-        <%= link_to "Log in", new_user_session_path, class:"btn btn-info top-btn" %>
-        <br/>
-        <br/>
-        <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success top-btn" %>
+ <div class="btn-wrapper col-5 mx-auto">
+  <div class="row">
+       <%= link_to "Log in", new_user_session_path, class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
      </div>
- </div>
+     <div class="row">
+       <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success btn-sm btn-block sign_up" %>
+     </div>
+   </div>
 
 </div>
