@@ -1,8 +1,9 @@
 <div class="container">
  <div class="row">
-     
-  <div class="col-lg-6 mx-auto">
+  <div class="col-md-8 mx-auto">
+      
   <h1>User info</h1>
+  
    <div class="error-message">
    <% if @user.errors.any? %>
     <%= @user.errors.count %>error prohibited this obj from being saved:
@@ -13,7 +14,6 @@
    </div>
   
   <%= form_with model:@user, local: true do |f| %>
-
   <label for="inputName">Name</label><br/>
     <%= f.text_field :name, autofocus: true, id:"inputName"  %>
   <br/>
@@ -26,6 +26,7 @@
     <%= f.submit "Update User", class:"btn btn-secondary" %>
 
   <% end %>
+  </div>
   
  </div>
 </div>

@@ -1,16 +1,27 @@
-<h1>User info</h1>
-    <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpg", fallback:"no_image.jpg" %>
-    <p>
-        name
-        <%= user.name %>
-    </p>
-    <p>
-        introduction
-        <%= user.introduction %>
-    </p>
-    <%= link_to edit_user_path(user), class:"btn btn-outline-secondary",method: :get do %>
+<div class="container">
+ <div class="row">
+     
+ <h1>User info</h1>
+  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpg", fallback:"no_image.jpg" %>
+  
+  <table class="table">
+   <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </tbody>
+ </table>
+    
+  <div class="btn-wrapper col-12 mx-auto">
+    <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block btn-sm",method: :get do %>
         <i class="fas fa-user-cog"></i>
     <% end %>
+  </div>
 
 <h1>New book</h1>
   <%= form_with model:book,local:true do |f| %>
@@ -25,4 +36,5 @@
 
   <% end %>
 
-
+ </div>
+</div>
